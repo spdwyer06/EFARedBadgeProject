@@ -25,6 +25,10 @@ namespace GS_Data
         {
         }
 
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

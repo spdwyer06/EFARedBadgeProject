@@ -21,7 +21,10 @@
             @Html.DisplayNameFor(model => model.RatingType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GameName)
+            @Html.DisplayNameFor(model => model.GameTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th></th>
     </tr>
@@ -38,7 +41,10 @@
             @Html.DisplayFor(modelItem => item.RatingType)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GameName)
+            @Html.DisplayFor(modelItem => item.GameTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.GameID }) |

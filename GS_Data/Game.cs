@@ -16,18 +16,20 @@ namespace GS_Data
         [Key]
         public int GameID { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Platform")]
         public TypeOfPlatform PlatformType { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Category")]
         public TypeOfCategory CategoryType { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Rating")]
         public TypeOfRating RatingType { get; set; }
 
-        [Required]
-        public string GameName { get; set; }
+        [Required, Display(Name = "Title")]
+        public string GameTitle { get; set; }
 
+        [Required, DataType(DataType.Currency)]
+        public double Price { get; set; }
 
         public int NumberOfReviews
         {

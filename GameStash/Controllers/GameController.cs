@@ -12,22 +12,22 @@ namespace GameStash.Controllers
 {
     public class GameController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext _db = new ApplicationDbContext();
 
         // GET: Game
         public ActionResult Index()
         {
-            return View(db.Games.ToList());
+            return View(_db.Games.ToList());
         }
 
-        // GET: Game/Details/5
+        // GET: Game/Details/{id}
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
+            Game game = _db.Games.Find(id);
             if (game == null)
             {
                 return HttpNotFound();
@@ -42,30 +42,28 @@ namespace GameStash.Controllers
         }
 
         // POST: Game/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameTitle,Price")] Game game)
         {
             if (ModelState.IsValid)
             {
-                db.Games.Add(game);
-                db.SaveChanges();
+                _db.Games.Add(game);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(game);
         }
 
-        // GET: Game/Edit/5
+        // GET: Game/Edit/{id}
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
+            Game game = _db.Games.Find(id);
             if (game == null)
             {
                 return HttpNotFound();
@@ -73,30 +71,28 @@ namespace GameStash.Controllers
             return View(game);
         }
 
-        // POST: Game/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Game/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameTitle,Price")] Game game)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(game).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(game).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(game);
         }
 
-        // GET: Game/Delete/5
+        // GET: Game/Delete/{id}
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = db.Games.Find(id);
+            Game game = _db.Games.Find(id);
             if (game == null)
             {
                 return HttpNotFound();
@@ -104,14 +100,14 @@ namespace GameStash.Controllers
             return View(game);
         }
 
-        // POST: Game/Delete/5
+        // POST: Game/Delete/{id}
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Game game = db.Games.Find(id);
-            db.Games.Remove(game);
-            db.SaveChanges();
+            Game game = _db.Games.Find(id);
+            _db.Games.Remove(game);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +115,7 @@ namespace GameStash.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

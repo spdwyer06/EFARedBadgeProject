@@ -40,12 +40,12 @@ namespace GS_Data
             }
         }
 
-        public int AverageReview
+        public double AverageReview
         {
             get
             {
                 if (Reviews != null && Reviews.Count != 0)
-                    return (double)Reviews.Sum(rating => rating.Score) / Reviews.Count;
+                    return (double)Reviews.Sum(rating => rating.ReviewRating) / Reviews.Count;
 
                 return 0;
             }

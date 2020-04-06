@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GameStash.Models;
+using GS_Data;
 
 namespace GameStash.Controllers
 {

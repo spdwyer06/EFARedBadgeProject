@@ -46,7 +46,7 @@ namespace GameStash.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameName")] Game game)
+        public ActionResult Create([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameTitle,Price")] Game game)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace GameStash.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameName")] Game game)
+        public ActionResult Edit([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameTitle,Price")] Game game)
         {
             if (ModelState.IsValid)
             {

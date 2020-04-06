@@ -10,103 +10,112 @@ using GS_Data;
 
 namespace GameStash.Controllers
 {
-    public class GameController : Controller
+    public class ReviewController : Controller
     {
         private readonly ApplicationDbContext _db = new ApplicationDbContext();
 
-        // GET: Game
+        // GET: Review
         public ActionResult Index()
         {
-            return View(_db.Games.ToList());
+            var reviews = _db.Reviews.Include(r => r.Game);
+            return View(reviews.ToList());
         }
 
-        // GET: Game/Details/{id}
+        // GET: Review/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = _db.Games.Find(id);
-            if (game == null)
+            Review review = _db.Reviews.Find(id);
+            if (review == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(review);
         }
 
-        // GET: Game/Create
+        // GET: Review/Create
         public ActionResult Create()
         {
+            ViewBag.GameID = new SelectList(_db.Games, "GameID", "GameTitle");
             return View();
         }
 
-        // POST: Game/Create
+        // POST: Review/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameTitle,Price")] Game game)
+        public ActionResult Create([Bind(Include = "ReviewID,GameID,ReviewRating,ReviewDescription")] Review review)
         {
             if (ModelState.IsValid)
             {
-                _db.Games.Add(game);
+                _db.Reviews.Add(review);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(game);
+            ViewBag.GameID = new SelectList(_db.Games, "GameID", "GameTitle", review.GameID);
+            return View(review);
         }
 
-        // GET: Game/Edit/{id}
+        // GET: Review/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = _db.Games.Find(id);
-            if (game == null)
+            Review review = _db.Reviews.Find(id);
+            if (review == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            ViewBag.GameID = new SelectList(_db.Games, "GameID", "GameTitle", review.GameID);
+            return View(review);
         }
 
-        // POST: Game/Edit/{id}
+        // POST: Review/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameTitle,Price")] Game game)
+        public ActionResult Edit([Bind(Include = "ReviewID,GameID,ReviewRating,ReviewDescription")] Review review)
         {
             if (ModelState.IsValid)
             {
-                _db.Entry(game).State = EntityState.Modified;
+                _db.Entry(review).State = EntityState.Modified;
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(game);
+            ViewBag.GameID = new SelectList(_db.Games, "GameID", "GameTitle", review.GameID);
+            return View(review);
         }
 
-        // GET: Game/Delete/{id}
+        // GET: Review/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Game game = _db.Games.Find(id);
-            if (game == null)
+            Review review = _db.Reviews.Find(id);
+            if (review == null)
             {
                 return HttpNotFound();
             }
-            return View(game);
+            return View(review);
         }
 
-        // POST: Game/Delete/{id}
+        // POST: Review/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Game game = _db.Games.Find(id);
-            _db.Games.Remove(game);
+            Review review = _db.Reviews.Find(id);
+            _db.Reviews.Remove(review);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

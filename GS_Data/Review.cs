@@ -13,6 +13,9 @@ namespace GS_Data
         [Key]
         public int ReviewID { get; set; }
 
+        [Required]
+        public Guid UserID { get; set; }
+
         [ForeignKey("Game")]
         public int GameID { get; set; }
         public virtual Game Game { get; set; }

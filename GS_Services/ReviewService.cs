@@ -33,5 +33,20 @@ namespace GS_Services
 
             return query.ToArray();
         }
+
+        public bool CreateReview(ReviewCreate model)
+        {
+            var entity = new Review
+            {
+                UserID = _userID,
+                GameID = model.GameID,
+                ReviewRating = model.ReviewRating,
+                ReviewDescription = model.ReviewDescription
+            };
+
+            _db.Reviews.Add(entity);
+
+            return _db.SaveChanges() == 1;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using GS_Services;
+﻿using GS_Models.Review;
+using GS_Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,43 @@ namespace GameStash.Controllers
             var model = service.GetReviews();
 
             return View(model);
+        }
+
+        // GET: Review/Create
+        [Authorize]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Review/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ReviewCreate model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var service = CreateReviewService();
+
+            if (service.CreateReview(model))
+            {
+                TempData["SaveResult"] = "Review successfully created.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Review could not be created.");
+            return View(model);
+        }
+
+
+
+        private ReviewService CreateReviewService()
+        {
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new ReviewService();
+
+            return service;
         }
     }
 }

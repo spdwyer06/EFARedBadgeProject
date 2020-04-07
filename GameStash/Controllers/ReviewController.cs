@@ -47,6 +47,14 @@ namespace GameStash.Controllers
             return View(model);
         }
 
+        // GET: Review/Details/{id}
+        public ActionResult Details(int id)
+        {
+            var service = CreateReviewService();
+            var model = service.GetReviewByID(id);
+
+            return View(model);
+        }
 
 
         private ReviewService CreateReviewService()

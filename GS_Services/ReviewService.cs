@@ -48,5 +48,19 @@ namespace GS_Services
 
             return _db.SaveChanges() == 1;
         }
+
+        public ReviewDetail GetReviewByID(int id)
+        {
+            var entity = _db.Reviews
+                .Single(x => x.ReviewID == id);
+
+            return new ReviewDetail
+            {
+                UserID = entity.UserID,
+                GameTitle = entity.Game.GameTitle,
+                ReviewRating = entity.ReviewRating,
+                ReviewDescription = entity.ReviewDescription
+            };
+        }
     }
 }

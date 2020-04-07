@@ -52,5 +52,31 @@ namespace GS_Services
             _db.Games.Add(entity);
             return _db.SaveChanges() == 1;
         }
+
+        public GameDetail GetGameByID(int id)
+        {
+            var entity = _db.Games
+                .Single(x => x.GameID == id);
+
+            return new GameDetail
+            {
+                GameID = entity.GameID,
+                GameTitle = entity.GameTitle,
+                PlatformType = entity.PlatformType,
+                CategoryType = entity.CategoryType,
+                RatingType = entity.RatingType,
+                Price = entity.Price
+            };
+        }
+
+        //public bool UpdateGame(GameEdit model)
+        //{
+            
+        //}
+
+        //public bool DeleteGame(int id)
+        //{
+
+        //}
     }
 }

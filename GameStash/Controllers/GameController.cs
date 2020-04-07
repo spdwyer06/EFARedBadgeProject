@@ -20,27 +20,10 @@ namespace GameStash.Controllers
         // GET: Game
         public ActionResult Index()
         {
-            //var userID;
-
-            //if (userID = Guid.Parse(User.Identity.GetUserId()))
-            //{
-            //    var service = new GameService(userID);
-            //    var model = service.GetGames();
-            //    return View(model);
-            //}
-            //else
-            //{
-            //    var service = new GameService();
-            //    var model = service.GetGames();
-            //    return View(model);
-            //}
-
             var service = new GameService();
             var model = service.GetGames();
 
             return View(model);
-
-            //return View(_db.Games.ToList());
         }
 
         // GET: Game/Create
@@ -74,18 +57,12 @@ namespace GameStash.Controllers
         }
 
         // GET: Game/Details/{id}
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Game game = _db.Games.Find(id);
-            if (game == null)
-            {
-                return HttpNotFound();
-            }
-            return View(game);
+            var service = CreateGameService();
+            var model = service.GetGameByID(id);
+
+            return View(model);
         }
 
         // GET: Game/Edit/{id}

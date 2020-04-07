@@ -16,12 +16,14 @@ namespace GS_Data
         [Key]
         public int GameID { get; set; }
 
+        // Rename to UserID
         [Required]
         public Guid OwnerId { get; set; }
 
         [Required, Display(Name = "Platform")]
         public TypeOfPlatform PlatformType { get; set; }
 
+        // Rename to GenreType
         [Required, Display(Name = "Category")]
         public TypeOfCategory CategoryType { get; set; }
 

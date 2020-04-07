@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GS_Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace GameStash.Controllers
         // GET: Review
         public ActionResult Index()
         {
-            return View();
+            var service = new ReviewService();
+            var model = service.GetReviews();
+
+            return View(model);
         }
     }
 }

@@ -8,6 +8,14 @@ namespace GS_Models.Review
 {
     public class ReviewListItem
     {
+        public int ReviewID { get; set; }
+
+        public string GameTitle { get; set; }
+        public virtual GS_Data.Game Game { get; set; }
+
+        public int ReviewRating { get; set; }
+
+        public string ReviewDescription { get; set; }
 
     }
 }

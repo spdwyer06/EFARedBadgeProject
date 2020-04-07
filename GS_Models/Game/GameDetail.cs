@@ -41,6 +41,6 @@ namespace GS_Models.Game
             }
         }
 
-        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<GS_Data.Review> Reviews { get; set; }
     }
 }

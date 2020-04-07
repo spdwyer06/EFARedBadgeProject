@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GS_Data.Game>
+﻿@model IEnumerable<GS_Models.Game.GameListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -11,6 +11,9 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.GameTitle)
         </th>
@@ -38,6 +41,9 @@
 @foreach (var item in Model) {
 <tr>
     <td>
+        @Html.DisplayFor(modelItem => item.GameID)
+    </td>
+    <td>
         @Html.DisplayFor(modelItem => item.GameTitle)
     </td>
     <td>
@@ -61,8 +67,7 @@
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.GameID }) |
         @Html.ActionLink("Details", "Details", new { id = item.GameID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.GameID }) |
-        @Html.ActionLink("Reviews", "Review", new { id = item.GameID })
+        @Html.ActionLink("Delete", "Delete", new { id = item.GameID })
     </td>
 </tr>
 }

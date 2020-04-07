@@ -20,7 +20,27 @@ namespace GameStash.Controllers
         // GET: Game
         public ActionResult Index()
         {
-            return View(_db.Games.ToList());
+            //var userID;
+
+            //if (userID = Guid.Parse(User.Identity.GetUserId()))
+            //{
+            //    var service = new GameService(userID);
+            //    var model = service.GetGames();
+            //    return View(model);
+            //}
+            //else
+            //{
+            //    var service = new GameService();
+            //    var model = service.GetGames();
+            //    return View(model);
+            //}
+
+            var service = new GameService();
+            var model = service.GetGames();
+
+            return View(model);
+
+            //return View(_db.Games.ToList());
         }
 
         // GET: Game/Create
@@ -51,15 +71,6 @@ namespace GameStash.Controllers
 
             ModelState.AddModelError("", "Game could not be created.");
             return View(model);
-
-            //if (ModelState.IsValid)
-            //{
-            //    _db.Games.Add(game);
-            //    _db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-
-            //return View(game);
         }
 
         // GET: Game/Details/{id}

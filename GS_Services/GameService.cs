@@ -14,9 +14,27 @@ namespace GS_Services
         private readonly ApplicationDbContext _db = new ApplicationDbContext();
         private readonly Guid _userID;
 
+        public GameService() { }
+
         public GameService(Guid userID)
         {
             _userID = userID;
+        }
+
+        public IEnumerable<GameListItem> GetGames()
+        {
+            var query = _db.Games
+                .Select(x => new GameListItem
+                {
+                    GameID = x.GameID,
+                    GameTitle = x.GameTitle,
+                    PlatformType = x.PlatformType,
+                    CategoryType = x.CategoryType,
+                    RatingType = x.RatingType,
+                    Price = x.Price
+                });
+
+            return query.ToArray();
         }
 
         public bool CreateGame(GameCreate model)
@@ -25,9 +43,9 @@ namespace GS_Services
             {
                 OwnerId = _userID,
                 GameTitle = model.GameTitle,
-                PlatformType = (TypeOfPlatform)model.PlatformType,
-                CategoryType = (TypeOfCategory)model.CategoryType,
-                RatingType = (TypeOfRating)model.RatingType,
+                PlatformType = model.PlatformType,
+                CategoryType = model.CategoryType,
+                RatingType = model.RatingType,
                 Price = model.Price
             };
 

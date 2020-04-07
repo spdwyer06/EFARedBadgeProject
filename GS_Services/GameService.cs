@@ -83,9 +83,14 @@ namespace GS_Services
             return _db.SaveChanges() == 1;
         }
 
-        //public bool DeleteGame(int id)
-        //{
+        public bool DeleteGame(int id)
+        {
+            var entity = _db.Games
+                .Single(x => x.GameID == id);
 
-        //}
+            _db.Games.Remove(entity);
+
+            return _db.SaveChanges() == 1;
+        }
     }
 }

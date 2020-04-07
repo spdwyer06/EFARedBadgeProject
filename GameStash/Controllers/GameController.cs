@@ -81,17 +81,6 @@ namespace GameStash.Controllers
             };
 
             return View(model);
-
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //Game game = _db.Games.Find(id);
-            //if (game == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //return View(game);
         }
 
         // POST: Game/Edit/{id}
@@ -118,29 +107,15 @@ namespace GameStash.Controllers
 
             ModelState.AddModelError("", "The game could not be updated.");
             return View(model);
-
-            //if (ModelState.IsValid)
-            //{
-            //    _db.Entry(game).State = EntityState.Modified;
-            //    _db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-            //return View(game);
         }
 
         // GET: Game/Delete/{id}
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Game game = _db.Games.Find(id);
-            if (game == null)
-            {
-                return HttpNotFound();
-            }
-            return View(game);
+            var service = CreateGameService();
+            var model = service.GetGameByID(id);
+
+            return View(model);
         }
 
         // POST: Game/Delete/{id}
@@ -148,9 +123,12 @@ namespace GameStash.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Game game = _db.Games.Find(id);
-            _db.Games.Remove(game);
-            _db.SaveChanges();
+            var service = CreateGameService();
+
+            service.DeleteGame(id);
+
+            TempData["SaveResult"] = "Selected game deleted.";
+
             return RedirectToAction("Index");
         }
 

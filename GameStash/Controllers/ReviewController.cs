@@ -56,6 +56,47 @@ namespace GameStash.Controllers
             return View(model);
         }
 
+        // GET: Review/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = CreateReviewService();
+            var detail = service.GetReviewByID(id);
+            var model = new ReviewEdit
+            {
+                ReviewID = detail.ReviewID,
+                GameTitle = detail.GameTitle,
+                ReviewRating = detail.ReviewRating,
+                ReviewDescription = detail.ReviewDescription
+            };
+
+            return View(model);
+        }
+
+        // POST: Review/Edit/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ReviewEdit model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if(model.ReviewID != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateReviewService();
+
+            if (service.UpdateReview(model))
+            {
+                TempData["SaveResult"] = "The review was succesfully updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The review could not be updated.");
+            return View(model);
+        }
 
         private ReviewService CreateReviewService()
         {

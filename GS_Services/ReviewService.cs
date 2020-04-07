@@ -62,5 +62,16 @@ namespace GS_Services
                 ReviewDescription = entity.ReviewDescription
             };
         }
+
+        public bool UpdateReview(ReviewEdit model)
+        {
+            var entity = _db.Reviews
+                .Single(x => x.ReviewID == model.ReviewID && x.UserID == _userID);
+
+            entity.ReviewRating = model.ReviewRating;
+            entity.ReviewDescription = model.ReviewDescription;
+
+            return _db.SaveChanges() == 1;
+        }
     }
 }

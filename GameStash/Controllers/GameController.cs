@@ -66,32 +66,66 @@ namespace GameStash.Controllers
         }
 
         // GET: Game/Edit/{id}
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            var service = CreateGameService();
+            var detail = service.GetGameByID(id);
+            var model = new GameEdit
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Game game = _db.Games.Find(id);
-            if (game == null)
-            {
-                return HttpNotFound();
-            }
-            return View(game);
+                GameID = detail.GameID,
+                GameTitle = detail.GameTitle,
+                PlatformType = detail.PlatformType,
+                CategoryType = detail.CategoryType,
+                RatingType = detail.RatingType,
+                Price = detail.Price
+            };
+
+            return View(model);
+
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //Game game = _db.Games.Find(id);
+            //if (game == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(game);
         }
 
         // POST: Game/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GameID,PlatformType,CategoryType,RatingType,GameTitle,Price")] Game game)
+        public ActionResult Edit(int id, GameEdit model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if(model.GameID != id)
             {
-                _db.Entry(game).State = EntityState.Modified;
-                _db.SaveChanges();
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateGameService();
+
+            if (service.UpdateGame(model))
+            {
+                TempData["SaveResult"] = "The game was successfully updated.";
                 return RedirectToAction("Index");
             }
-            return View(game);
+
+            ModelState.AddModelError("", "The game could not be updated.");
+            return View(model);
+
+            //if (ModelState.IsValid)
+            //{
+            //    _db.Entry(game).State = EntityState.Modified;
+            //    _db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            //return View(game);
         }
 
         // GET: Game/Delete/{id}

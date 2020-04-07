@@ -69,10 +69,19 @@ namespace GS_Services
             };
         }
 
-        //public bool UpdateGame(GameEdit model)
-        //{
-            
-        //}
+        public bool UpdateGame(GameEdit model)
+        {
+            var entity = _db.Games
+                .Single(x => x.GameID == model.GameID);
+
+            entity.GameTitle = model.GameTitle;
+            entity.PlatformType = model.PlatformType;
+            entity.CategoryType = model.CategoryType;
+            entity.RatingType = model.RatingType;
+            entity.Price = model.Price;
+
+            return _db.SaveChanges() == 1;
+        }
 
         //public bool DeleteGame(int id)
         //{

@@ -98,6 +98,28 @@ namespace GameStash.Controllers
             return View(model);
         }
 
+        // GET: Review/Delete/{id}
+        public ActionResult Delete(int id)
+        {
+            var service = CreateReviewService();
+            var model = service.GetReviewByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteReview(int id)
+        {
+            var service = CreateReviewService();
+
+            service.DeleteReview(id);
+
+            TempData["SaveResult"] = "The selected review was deleted.";
+
+            return RedirectToAction("Index");
+        }
+
         private ReviewService CreateReviewService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());

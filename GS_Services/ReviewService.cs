@@ -73,5 +73,15 @@ namespace GS_Services
 
             return _db.SaveChanges() == 1;
         }
+
+        public bool DeleteReview(int reviewID)
+        {
+            var entity = _db.Reviews
+                .Single(x => x.ReviewID == reviewID && x.UserID == _userID);
+
+            _db.Reviews.Remove(entity);
+
+            return _db.SaveChanges() == 1;
+        }
     }
 }

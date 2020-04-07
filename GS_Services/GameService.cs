@@ -12,11 +12,18 @@ namespace GS_Services
     public class GameService
     {
         private readonly ApplicationDbContext _db = new ApplicationDbContext();
+        private readonly Guid _userID;
+
+        public GameService(Guid userID)
+        {
+            _userID = userID;
+        }
 
         public bool CreateGame(GameCreate model)
         {
             var entity = new Game()
             {
+
                 GameTitle = model.GameTitle,
                 PlatformType = (TypeOfPlatform)model.PlatformType,
                 CategoryType = (TypeOfCategory)model.CategoryType,

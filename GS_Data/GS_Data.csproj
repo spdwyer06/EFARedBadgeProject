@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202004062110094_AddedPriceToGame.designer.cs">
       <DependentUpon>202004062110094_AddedPriceToGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004071527045_AddedOwnerIDToGame.cs" />
+    <Compile Include="Migrations\202004071527045_AddedOwnerIDToGame.designer.cs">
+      <DependentUpon>202004071527045_AddedOwnerIDToGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review.cs" />
@@ -81,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004062110094_AddedPriceToGame.resx">
       <DependentUpon>202004062110094_AddedPriceToGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004071527045_AddedOwnerIDToGame.resx">
+      <DependentUpon>202004071527045_AddedOwnerIDToGame.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

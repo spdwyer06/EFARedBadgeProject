@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.GameTitle)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.PlatformType)
         </th>
         <th>
@@ -21,37 +24,47 @@
             @Html.DisplayNameFor(model => model.RatingType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GameTitle)
+            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.NumberOfReviews)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AverageReview)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlatformType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GameTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GameID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GameID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GameID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.GameTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PlatformType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CategoryType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RatingType)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfReviews)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AverageReview)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.GameID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.GameID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.GameID }) |
+        @Html.ActionLink("Reviews", "Review", new { id = item.GameID })
+    </td>
+</tr>
 }
 
 </table>

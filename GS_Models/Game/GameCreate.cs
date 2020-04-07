@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace GS_Models.Game
         public enum TypeOfCategory { FPS, RPG, Sports }
         public enum TypeOfRating { E, T, M }
 
+      
         public string GameTitle { get; set; }
         public TypeOfPlatform PlatformType { get; set; }
         public TypeOfCategory CategoryType { get; set; }

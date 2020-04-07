@@ -23,7 +23,7 @@ namespace GS_Services
         {
             var entity = new Game()
             {
-
+                OwnerId = _userID,
                 GameTitle = model.GameTitle,
                 PlatformType = (TypeOfPlatform)model.PlatformType,
                 CategoryType = (TypeOfCategory)model.CategoryType,

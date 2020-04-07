@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using GS_Data;
 using GS_Models.Game;
 using GS_Services;
+using Microsoft.AspNet.Identity;
 
 namespace GameStash.Controllers
 {
@@ -23,6 +24,8 @@ namespace GameStash.Controllers
         }
 
         // GET: Game/Create
+        // User must be logged in to create a game
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -38,9 +41,7 @@ namespace GameStash.Controllers
                 return View(model);
             }
 
-            //var service = CreateGameService();
-
-            var service = new GameService();
+            var service = CreateGameService();
 
             if (service.CreateGame(model))
             {
@@ -48,7 +49,7 @@ namespace GameStash.Controllers
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Game could not be created.");
             return View(model);
 
             //if (ModelState.IsValid)
@@ -138,6 +139,13 @@ namespace GameStash.Controllers
                 _db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private GameService CreateGameService()
+        {
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new GameService(userID);
+            return service;
         }
     }
 }

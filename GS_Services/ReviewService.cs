@@ -26,6 +26,7 @@ namespace GS_Services
                 .Select(x => new ReviewListItem
                 {
                     ReviewID = x.ReviewID,
+                    CreatorDisplayName = x.CreatorDisplayName,
                     GameTitle = x.Game.GameTitle,
                     ReviewRating = x.ReviewRating,
                     ReviewDescription = x.ReviewDescription
@@ -39,6 +40,7 @@ namespace GS_Services
             var entity = new Review
             {
                 UserID = _userID,
+                CreatorDisplayName = GetDisplayName(_userID),
                 GameID = model.GameID,
                 ReviewRating = model.ReviewRating,
                 ReviewDescription = model.ReviewDescription
@@ -56,7 +58,7 @@ namespace GS_Services
 
             return new ReviewDetail
             {
-                UserID = entity.UserID,
+                CreatorDisplayName = entity.CreatorDisplayName,
                 GameTitle = entity.Game.GameTitle,
                 ReviewRating = entity.ReviewRating,
                 ReviewDescription = entity.ReviewDescription
@@ -82,6 +84,19 @@ namespace GS_Services
             _db.Reviews.Remove(entity);
 
             return _db.SaveChanges() == 1;
+        }
+
+
+
+        public string GetDisplayName(Guid userID)
+        {
+            var user = _db.Users
+                .Where(x => x.Id == userID.ToString())
+                .Single();
+
+            var displayName = user.DisplayName;
+
+            return displayName;
         }
     }
 }

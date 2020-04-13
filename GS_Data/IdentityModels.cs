@@ -27,6 +27,9 @@ namespace GS_Data
 
         public DbSet<Game> Games { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Thread> Threads { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<PostReply> Replies { get; set; }
 
 
         public static ApplicationDbContext Create()

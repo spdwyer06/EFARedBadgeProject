@@ -75,9 +75,16 @@
     <Compile Include="Migrations\202004072012055_AddedUserIDToReview.designer.cs">
       <DependentUpon>202004072012055_AddedUserIDToReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004130341122_AddedThreadPostPostReplyClasses.cs" />
+    <Compile Include="Migrations\202004130341122_AddedThreadPostPostReplyClasses.designer.cs">
+      <DependentUpon>202004130341122_AddedThreadPostPostReplyClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Post.cs" />
+    <Compile Include="PostReply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review.cs" />
+    <Compile Include="Thread.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -95,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004072012055_AddedUserIDToReview.resx">
       <DependentUpon>202004072012055_AddedUserIDToReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004130341122_AddedThreadPostPostReplyClasses.resx">
+      <DependentUpon>202004130341122_AddedThreadPostPostReplyClasses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

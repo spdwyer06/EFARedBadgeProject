@@ -31,7 +31,8 @@ namespace GS_Services
                     PlatformType = x.PlatformType,
                     CategoryType = x.CategoryType,
                     RatingType = x.RatingType,
-                    Price = x.Price
+                    Price = x.Price,
+                    Reviews = x.Reviews
                 });
 
             return query.ToArray();

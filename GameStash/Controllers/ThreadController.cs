@@ -21,7 +21,7 @@ namespace GameStash.Controllers
         public ActionResult Index()
         {
             var service = new ThreadService();
-            var model = service.GetThreads();
+            var model = service.GetAllThreads();
 
             return View(model);
         }
@@ -65,10 +65,10 @@ namespace GameStash.Controllers
         }
 
         // GET: /Thread/Details/{id}
-        public ActionResult Details(int id)
+        public ActionResult Details(int threadID)
         {
             var service = new ThreadService();
-            var model = service.GetThreadByID(id);
+            var model = service.GetThreadByID(threadID);
 
             return View(model);
         }
@@ -83,10 +83,10 @@ namespace GameStash.Controllers
         //}
 
         // GET: /Thread/Edit/{id}
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int threadID)
         {
             var service = CreateThreadService();
-            var detail = service.GetThreadByID(id);
+            var detail = service.GetThreadByID(threadID);
             var model = new ThreadEdit
             {
                 ThreadID = detail.ThreadID,
@@ -94,7 +94,7 @@ namespace GameStash.Controllers
                 ThreadDescription = detail.ThreadDescription
             };
 
-            if (service.ValidateUser(id) == true)
+            if (service.ValidateUser(threadID) == true)
                 return View(model);
 
             return View("ValidationFailed");
@@ -103,12 +103,12 @@ namespace GameStash.Controllers
         // POST: /Thread/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ThreadEdit model)
+        public ActionResult Edit(int threadID, ThreadEdit model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (model.ThreadID != id)
+            if (model.ThreadID != threadID)
             {
                 ModelState.AddModelError("", "ID Mismatch");
                 return View(model);
@@ -168,12 +168,12 @@ namespace GameStash.Controllers
         //}
 
         // GET: /Thread/Delete/{id}
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int threadID)
         {
             var service = CreateThreadService();
-            var model = service.GetThreadByID(id);
+            var model = service.GetThreadByID(threadID);
 
-            if (service.ValidateUser(id) == true)
+            if (service.ValidateUser(threadID) == true)
                 return View(model);
 
             return View("ValidationFailed");
@@ -182,11 +182,11 @@ namespace GameStash.Controllers
         // POST: /Thread/Delete/{id}
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteThread(int id)
+        public ActionResult DeleteThread(int threadID)
         {
             var service = CreateThreadService();
 
-            service.DeleteThread(id);
+            service.DeleteThread(threadID);
 
             TempData["SaveResult"] = "Your thread was deleted.";
 

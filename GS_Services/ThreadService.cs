@@ -35,7 +35,7 @@ namespace GS_Services
             return _dbContext.SaveChanges() == 1;
         }
 
-        public IEnumerable<ThreadListItem> GetThreads()
+        public IEnumerable<ThreadListItem> GetAllThreads()
         {
             var query = _dbContext.Threads
                     .Select(x => new ThreadListItem
@@ -66,10 +66,10 @@ namespace GS_Services
         //    return query.ToArray();
         //}
 
-        public ThreadDetail GetThreadByID(int id)
+        public ThreadDetail GetThreadByID(int threadID)
         {
             var entity = _dbContext.Threads
-                .Single(x => x.ThreadID == id);
+                .Single(x => x.ThreadID == threadID);
 
             return new ThreadDetail
             {

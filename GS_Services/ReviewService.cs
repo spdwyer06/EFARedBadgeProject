@@ -58,6 +58,7 @@ namespace GS_Services
 
             return new ReviewDetail
             {
+                ReviewID = entity.ReviewID,
                 CreatorDisplayName = entity.CreatorDisplayName,
                 GameTitle = entity.Game.GameTitle,
                 ReviewRating = entity.ReviewRating,
@@ -68,7 +69,7 @@ namespace GS_Services
         public bool UpdateReview(ReviewEdit model)
         {
             var entity = _db.Reviews
-                .Single(x => x.ReviewID == model.ReviewID && x.UserID == _userID);
+                .Single(x => x.ReviewID == model.ReviewID); // && x.UserID == _userID);
 
             entity.ReviewRating = model.ReviewRating;
             entity.ReviewDescription = model.ReviewDescription;
@@ -79,7 +80,7 @@ namespace GS_Services
         public bool DeleteReview(int reviewID)
         {
             var entity = _db.Reviews
-                .Single(x => x.ReviewID == reviewID && x.UserID == _userID);
+                .Single(x => x.ReviewID == reviewID); // && x.UserID == _userID);
 
             _db.Reviews.Remove(entity);
 
@@ -87,6 +88,19 @@ namespace GS_Services
         }
 
 
+
+
+
+        public bool ValidateUser(int reviewID)
+        {
+            var entity = _db.Reviews
+                .Single(x => x.ReviewID == reviewID);
+
+            if (entity.UserID == _userID)
+                return true;
+
+            return false;
+        }
 
         public string GetDisplayName(Guid userID)
         {

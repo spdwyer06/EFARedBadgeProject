@@ -30,6 +30,8 @@
                     @Html.ValidationMessageFor(model => model.GameTitle, "", new { @class = "text-danger" })
                 </div>
             </div>*@
+        @Html.HiddenFor(model => model.ReviewID)
+
         <dl>
             <dt>
                 @Html.DisplayNameFor(model => model.GameTitle)

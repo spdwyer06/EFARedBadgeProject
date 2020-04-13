@@ -70,7 +70,10 @@ namespace GameStash.Controllers
                 ReviewDescription = detail.ReviewDescription
             };
 
-            return View(model);
+            if (service.ValidateUser(id) == true)
+                return View(model);
+
+            return View("ValidationFailed");
         }
 
         // POST: Review/Edit/{id}
@@ -106,7 +109,10 @@ namespace GameStash.Controllers
             var service = CreateReviewService();
             var model = service.GetReviewByID(id);
 
-            return View(model);
+            if (service.ValidateUser(id) == true)
+                return View(model);
+
+            return View("ValidationFailed");
         }
 
         [HttpPost, ActionName("Delete")]
@@ -125,7 +131,7 @@ namespace GameStash.Controllers
         private ReviewService CreateReviewService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new ReviewService();
+            var service = new ReviewService(userID);
 
             return service;
         }

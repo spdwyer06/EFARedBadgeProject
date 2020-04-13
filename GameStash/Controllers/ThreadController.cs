@@ -83,6 +83,7 @@ namespace GameStash.Controllers
         //}
 
         // GET: /Thread/Edit/{id}
+        [Authorize]
         public ActionResult Edit(int threadID)
         {
             var service = CreateThreadService();
@@ -168,6 +169,7 @@ namespace GameStash.Controllers
         //}
 
         // GET: /Thread/Delete/{id}
+        [Authorize]
         public ActionResult Delete(int threadID)
         {
             var service = CreateThreadService();

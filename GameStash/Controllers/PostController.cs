@@ -11,7 +11,7 @@ namespace GameStash.Controllers
 {
     public class PostController : Controller
     {
-        //GET: /Thread/GoToRepliesForPost
+        //GET: /Post/GoToRepliesForPost
         public ActionResult GoToRepliesForPost(int postID)
         {
             return RedirectToAction("PostRepliesIndex", "PostReply", new { postID });
@@ -97,6 +97,7 @@ namespace GameStash.Controllers
         }
 
         // GET: /Post/Edit/{id}
+        [Authorize]
         public ActionResult Edit(int postID)
         {
             var service = CreatePostService();
@@ -143,7 +144,7 @@ namespace GameStash.Controllers
         }
 
         // GET: /Post/Delete/{id}
-        [ActionName("Delete")]
+        [Authorize]
         public ActionResult Delete(int postID)
         {
             var service = CreatePostService();

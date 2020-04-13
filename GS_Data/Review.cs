@@ -13,7 +13,7 @@ namespace GS_Data
         [Key]
         public int ReviewID { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Created By")]
         public Guid UserID { get; set; }
 
         [ForeignKey("Game")]

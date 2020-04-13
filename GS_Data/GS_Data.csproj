@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202004131627254_AddedAnnotationToDataLayerClasses.designer.cs">
       <DependentUpon>202004131627254_AddedAnnotationToDataLayerClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.cs" />
+    <Compile Include="Migrations\202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.designer.cs">
+      <DependentUpon>202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="PostReply.cs" />
@@ -84,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004131627254_AddedAnnotationToDataLayerClasses.resx">
       <DependentUpon>202004131627254_AddedAnnotationToDataLayerClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.resx">
+      <DependentUpon>202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,12 +12,19 @@ namespace GS_Data
         [Key]
         public int ThreadID { get; set; }
 
+        [Required, Display(Name = "Creator")]
         public Guid ThreadCreator { get; set; }
 
+        [Required, Display(Name = "Title")]
+        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string ThreadTitle { get; set; }
 
+        [Display(Name = "Description")]
+        [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]
         public string ThreadDescription { get; set; }
 
+        [Required, Display(Name = "Created")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTimeOffset ThreadCreated { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }

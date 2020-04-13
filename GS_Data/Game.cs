@@ -24,18 +24,20 @@ namespace GS_Data
         public TypeOfPlatform PlatformType { get; set; }
 
         // Rename to GenreType
-        [Required, Display(Name = "Category")]
+        [Required, Display(Name = "Genre")]
         public TypeOfCategory CategoryType { get; set; }
 
-        [Required, Display(Name = "Rating")]
+        [Required, Display(Name = "Maturity Rating")]
         public TypeOfRating RatingType { get; set; }
 
         [Required, Display(Name = "Title")]
+        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string GameTitle { get; set; }
 
         [Required, DataType(DataType.Currency)]
         public double Price { get; set; }
 
+        [Display(Name = "Number of Reviews")]
         public int NumberOfReviews
         {
             get
@@ -47,6 +49,7 @@ namespace GS_Data
             }
         }
 
+        [Display(Name = "Average Review Rating")]
         public double AverageReview
         {
             get

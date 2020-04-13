@@ -1,6 +1,7 @@
 ﻿using GS_Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,18 @@ namespace GS_Models.ThreadViewModels
     {
         public int ThreadID { get; set; }
 
+        [Required, Display(Name = "Title")]
+        [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string ThreadTitle { get; set; }
 
+        [Required, Display(Name = "Creator")]
         public Guid ThreadCreator { get; set; }
 
+        [Required, Display(Name = "Created")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTimeOffset ThreadCreated { get; set; }
 
+        [Display(Name = "Number of Posts")]
         public int NumberOfPost
         {
             get

@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202004130549133_InitialMigration.designer.cs">
       <DependentUpon>202004130549133_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004131627254_AddedAnnotationToDataLayerClasses.cs" />
+    <Compile Include="Migrations\202004131627254_AddedAnnotationToDataLayerClasses.designer.cs">
+      <DependentUpon>202004131627254_AddedAnnotationToDataLayerClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="PostReply.cs" />
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004130549133_InitialMigration.resx">
       <DependentUpon>202004130549133_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004131627254_AddedAnnotationToDataLayerClasses.resx">
+      <DependentUpon>202004131627254_AddedAnnotationToDataLayerClasses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

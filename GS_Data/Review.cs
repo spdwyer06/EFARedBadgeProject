@@ -22,11 +22,12 @@ namespace GS_Data
 
         //public Guid UserID { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Review Rating")]
         [Range(1, 5)]
         public int ReviewRating { get; set; }
 
-        // Not required to make a review
+        [Display(Name = "Description")]
+        [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]
         public string ReviewDescription { get; set; }
     }
 }

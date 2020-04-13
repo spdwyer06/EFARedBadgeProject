@@ -1,5 +1,5 @@
 ﻿using GS_Data;
-using GS_Models.Review;
+using GS_Models.ReviewViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

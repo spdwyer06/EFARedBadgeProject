@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static GS_Data.Game;
 
-namespace GS_Models.Game
+namespace GS_Models.GameViewModels
 {
     public class GameCreate
     {

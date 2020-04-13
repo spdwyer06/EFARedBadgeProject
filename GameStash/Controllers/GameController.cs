@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GS_Data;
-using GS_Models.Game;
+using GS_Models.GameViewModels;
 using GS_Services;
 using Microsoft.AspNet.Identity;
 
@@ -66,6 +66,7 @@ namespace GameStash.Controllers
         }
 
         // GET: Game/Edit/{id}
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var service = CreateGameService();
@@ -110,6 +111,7 @@ namespace GameStash.Controllers
         }
 
         // GET: Game/Delete/{id}
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var service = CreateGameService();

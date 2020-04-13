@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static GS_Data.Game;
 
-namespace GS_Models.Game
+namespace GS_Models.GameViewModels
 {
-    public class GameListItem
+    public class GameDetail
     {
         public int GameID { get; set; }
         public string GameTitle { get; set; }
@@ -42,6 +42,5 @@ namespace GS_Models.Game
         }
 
         public virtual ICollection<GS_Data.Review> Reviews { get; set; }
-
     }
 }

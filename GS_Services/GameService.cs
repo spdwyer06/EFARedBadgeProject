@@ -1,5 +1,5 @@
 ﻿using GS_Data;
-using GS_Models.Game;
+using GS_Models.GameViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

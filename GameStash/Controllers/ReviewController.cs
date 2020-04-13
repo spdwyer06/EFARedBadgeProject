@@ -1,4 +1,4 @@
-﻿using GS_Models.Review;
+﻿using GS_Models.ReviewViewModels;
 using GS_Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -57,6 +57,7 @@ namespace GameStash.Controllers
         }
 
         // GET: Review/Edit/{id}
+        [Authorize]
         public ActionResult Edit(int id)
         {
             var service = CreateReviewService();
@@ -99,6 +100,7 @@ namespace GameStash.Controllers
         }
 
         // GET: Review/Delete/{id}
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var service = CreateReviewService();

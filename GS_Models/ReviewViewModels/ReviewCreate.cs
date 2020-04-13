@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GS_Models.Review
+namespace GS_Models.ReviewViewModels
 {
     public class ReviewCreate
     {

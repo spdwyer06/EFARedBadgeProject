@@ -13,6 +13,10 @@ namespace GS_Models.ReviewViewModels
     {
         public int ReviewID { get; set; }
 
+        [Required, Display(Name = "Created By")]
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
+
         [ForeignKey("Game")]
         public string GameTitle { get; set; }
         public virtual Game Game { get; set; }

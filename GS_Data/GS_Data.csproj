@@ -71,6 +71,10 @@
     <Compile Include="Migrations\202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.designer.cs">
       <DependentUpon>202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004132152542_AddedUserDisplayNamePropertyThroughout.cs" />
+    <Compile Include="Migrations\202004132152542_AddedUserDisplayNamePropertyThroughout.designer.cs">
+      <DependentUpon>202004132152542_AddedUserDisplayNamePropertyThroughout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="PostReply.cs" />
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.resx">
       <DependentUpon>202004131650191_ChangedUserIDToDisplayAsCreatedByInReviewClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004132152542_AddedUserDisplayNamePropertyThroughout.resx">
+      <DependentUpon>202004132152542_AddedUserDisplayNamePropertyThroughout.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

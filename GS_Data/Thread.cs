@@ -12,8 +12,12 @@ namespace GS_Data
         [Key]
         public int ThreadID { get; set; }
 
-        [Required, Display(Name = "Creator")]
+        [Required, Display(Name = "Creator ID")]
         public Guid ThreadCreator { get; set; }
+
+        [Required, Display(Name = "Created By")]
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
 
         [Required, Display(Name = "Title")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]

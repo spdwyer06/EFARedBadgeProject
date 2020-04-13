@@ -13,8 +13,12 @@ namespace GS_Data
         [Key]
         public int ReviewID { get; set; }
 
-        [Required, Display(Name = "Created By")]
+        [Required, Display(Name = "Creator ID")]
         public Guid UserID { get; set; }
+
+        [Required, Display(Name = "Created By")]
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
 
         [ForeignKey("Game")]
         public int GameID { get; set; }

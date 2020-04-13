@@ -17,8 +17,12 @@ namespace GS_Data
         public int PostID { get; set; }
         public virtual Post Post { get; set; }
 
-        [Required, Display(Name = "Created By")]
+        [Required, Display(Name = "Creator ID")]
         public Guid ReplyCreator { get; set; }
+
+        [Required, Display(Name = "Created By")]
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
 
         [Required, Display(Name = "Content")]
         [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]

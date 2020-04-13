@@ -12,10 +12,12 @@
                 c => new
                     {
                         GameID = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
                         PlatformType = c.Int(nullable: false),
                         CategoryType = c.Int(nullable: false),
                         RatingType = c.Int(nullable: false),
-                        GameName = c.String(nullable: false),
+                        GameTitle = c.String(nullable: false),
+                        Price = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.GameID);
             
@@ -24,6 +26,7 @@
                 c => new
                     {
                         ReviewID = c.Int(nullable: false, identity: true),
+                        UserID = c.Guid(nullable: false),
                         GameID = c.Int(nullable: false),
                         ReviewRating = c.Int(nullable: false),
                         ReviewDescription = c.String(),
@@ -31,6 +34,46 @@
                 .PrimaryKey(t => t.ReviewID)
                 .ForeignKey("dbo.Games", t => t.GameID, cascadeDelete: true)
                 .Index(t => t.GameID);
+            
+            CreateTable(
+                "dbo.Posts",
+                c => new
+                    {
+                        PostID = c.Int(nullable: false, identity: true),
+                        ThreadID = c.Int(nullable: false),
+                        PostCreator = c.Guid(nullable: false),
+                        PostContent = c.String(),
+                        PostCreated = c.DateTimeOffset(nullable: false, precision: 7),
+                    })
+                .PrimaryKey(t => t.PostID)
+                .ForeignKey("dbo.Threads", t => t.ThreadID, cascadeDelete: true)
+                .Index(t => t.ThreadID);
+            
+            CreateTable(
+                "dbo.PostReplies",
+                c => new
+                    {
+                        ReplyID = c.Int(nullable: false, identity: true),
+                        PostID = c.Int(nullable: false),
+                        ReplyCreator = c.Guid(nullable: false),
+                        ReplyContent = c.String(),
+                        ReplyCreated = c.DateTimeOffset(nullable: false, precision: 7),
+                    })
+                .PrimaryKey(t => t.ReplyID)
+                .ForeignKey("dbo.Posts", t => t.PostID, cascadeDelete: true)
+                .Index(t => t.PostID);
+            
+            CreateTable(
+                "dbo.Threads",
+                c => new
+                    {
+                        ThreadID = c.Int(nullable: false, identity: true),
+                        ThreadCreator = c.Guid(nullable: false),
+                        ThreadTitle = c.String(),
+                        ThreadDescription = c.String(),
+                        ThreadCreated = c.DateTimeOffset(nullable: false, precision: 7),
+                    })
+                .PrimaryKey(t => t.ThreadID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -108,6 +151,8 @@
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Posts", "ThreadID", "dbo.Threads");
+            DropForeignKey("dbo.PostReplies", "PostID", "dbo.Posts");
             DropForeignKey("dbo.Reviews", "GameID", "dbo.Games");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -115,12 +160,17 @@
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.PostReplies", new[] { "PostID" });
+            DropIndex("dbo.Posts", new[] { "ThreadID" });
             DropIndex("dbo.Reviews", new[] { "GameID" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Threads");
+            DropTable("dbo.PostReplies");
+            DropTable("dbo.Posts");
             DropTable("dbo.Reviews");
             DropTable("dbo.Games");
         }

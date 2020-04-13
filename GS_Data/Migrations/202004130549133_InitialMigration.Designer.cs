@@ -7,13 +7,13 @@ namespace GS_Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class AddedThreadPostPostReplyClasses : IMigrationMetadata
+    public sealed partial class InitialMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedThreadPostPostReplyClasses));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004130341122_AddedThreadPostPostReplyClasses"; }
+            get { return "202004130549133_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

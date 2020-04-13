@@ -59,25 +59,9 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202004061920534_InitialMigration.cs" />
-    <Compile Include="Migrations\202004061920534_InitialMigration.designer.cs">
-      <DependentUpon>202004061920534_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004062110094_AddedPriceToGame.cs" />
-    <Compile Include="Migrations\202004062110094_AddedPriceToGame.designer.cs">
-      <DependentUpon>202004062110094_AddedPriceToGame.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004071527045_AddedOwnerIDToGame.cs" />
-    <Compile Include="Migrations\202004071527045_AddedOwnerIDToGame.designer.cs">
-      <DependentUpon>202004071527045_AddedOwnerIDToGame.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004072012055_AddedUserIDToReview.cs" />
-    <Compile Include="Migrations\202004072012055_AddedUserIDToReview.designer.cs">
-      <DependentUpon>202004072012055_AddedUserIDToReview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004130341122_AddedThreadPostPostReplyClasses.cs" />
-    <Compile Include="Migrations\202004130341122_AddedThreadPostPostReplyClasses.designer.cs">
-      <DependentUpon>202004130341122_AddedThreadPostPostReplyClasses.cs</DependentUpon>
+    <Compile Include="Migrations\202004130549133_InitialMigration.cs" />
+    <Compile Include="Migrations\202004130549133_InitialMigration.designer.cs">
+      <DependentUpon>202004130549133_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -91,20 +75,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004061920534_InitialMigration.resx">
-      <DependentUpon>202004061920534_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004062110094_AddedPriceToGame.resx">
-      <DependentUpon>202004062110094_AddedPriceToGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004071527045_AddedOwnerIDToGame.resx">
-      <DependentUpon>202004071527045_AddedOwnerIDToGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004072012055_AddedUserIDToReview.resx">
-      <DependentUpon>202004072012055_AddedUserIDToReview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004130341122_AddedThreadPostPostReplyClasses.resx">
-      <DependentUpon>202004130341122_AddedThreadPostPostReplyClasses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004130549133_InitialMigration.resx">
+      <DependentUpon>202004130549133_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

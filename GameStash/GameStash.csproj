@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\PostReplyController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ThreadController.cs" />
     <Compile Include="Global.asax.cs">
@@ -261,6 +262,12 @@
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\Delete.cshtml" />
     <Content Include="Views\Post\ValidationFailed.cshtml" />
+    <Content Include="Views\PostReply\ValidationFailed.cshtml" />
+    <Content Include="Views\PostReply\PostRepliesIndex.cshtml" />
+    <Content Include="Views\PostReply\Create.cshtml" />
+    <Content Include="Views\PostReply\Details.cshtml" />
+    <Content Include="Views\PostReply\Edit.cshtml" />
+    <Content Include="Views\PostReply\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

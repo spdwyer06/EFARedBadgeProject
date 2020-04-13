@@ -55,6 +55,10 @@
     <Compile Include="Game\GameDetail.cs" />
     <Compile Include="Game\GameEdit.cs" />
     <Compile Include="Game\GameListItem.cs" />
+    <Compile Include="PostReplyViewModels\PostReplyCreate.cs" />
+    <Compile Include="PostReplyViewModels\PostReplyDetail.cs" />
+    <Compile Include="PostReplyViewModels\PostReplyEdit.cs" />
+    <Compile Include="PostReplyViewModels\PostReplyListItem.cs" />
     <Compile Include="PostViewModels\PostCreate.cs" />
     <Compile Include="PostViewModels\PostDetail.cs" />
     <Compile Include="PostViewModels\PostEdit.cs" />
@@ -79,9 +83,7 @@
       <Name>GS_Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PostReplyViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

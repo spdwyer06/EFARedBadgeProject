@@ -60,6 +60,10 @@
     <Compile Include="Review\ReviewDetail.cs" />
     <Compile Include="Review\ReviewEdit.cs" />
     <Compile Include="Review\ReviewListItem.cs" />
+    <Compile Include="ThreadViewModels\ThreadCreate.cs" />
+    <Compile Include="ThreadViewModels\ThreadDetail.cs" />
+    <Compile Include="ThreadViewModels\ThreadEdit.cs" />
+    <Compile Include="ThreadViewModels\ThreadListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,6 +74,10 @@
       <Project>{155C0AB7-B3B6-4BD3-80E9-CA1141D396E7}</Project>
       <Name>GS_Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PostReplyViewModels\" />
+    <Folder Include="PostViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

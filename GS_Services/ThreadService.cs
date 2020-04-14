@@ -26,6 +26,7 @@ namespace GS_Services
             var entity = new Thread()
             {
                 ThreadCreator = _userID,
+                CreatorDisplayName = GetDisplayName(_userID),
                 ThreadTitle = model.ThreadTitle,
                 ThreadDescription = model.ThreadDescription,
                 ThreadCreated = DateTimeOffset.Now
@@ -42,7 +43,7 @@ namespace GS_Services
                     {
                         ThreadID = x.ThreadID,
                         ThreadTitle = x.ThreadTitle,
-                        ThreadCreator = x.ThreadCreator,
+                        CreatorDisplayName = x.CreatorDisplayName,
                         ThreadCreated = x.ThreadCreated,
                         Posts = x.Posts
                     });
@@ -74,7 +75,7 @@ namespace GS_Services
             return new ThreadDetail
             {
                 ThreadID = entity.ThreadID,
-                ThreadCreator = entity.ThreadCreator,
+                CreatorDisplayName = entity.CreatorDisplayName,
                 ThreadTitle = entity.ThreadTitle,
                 ThreadDescription = entity.ThreadDescription,
                 ThreadCreated = entity.ThreadCreated,
@@ -103,6 +104,8 @@ namespace GS_Services
             return _dbContext.SaveChanges() == 1;
         }
 
+
+
         public bool ValidateUser(int threadID)
         {
             var entity = _dbContext.Threads
@@ -112,6 +115,17 @@ namespace GS_Services
                 return true;
 
             return false;
+        }
+
+        public string GetDisplayName(Guid userID)
+        {
+            var user = _dbContext.Users
+                .Where(x => x.Id == userID.ToString())
+                .Single();
+
+            var displayName = user.DisplayName;
+
+            return displayName;
         }
     }
 }

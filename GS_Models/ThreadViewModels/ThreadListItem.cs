@@ -16,8 +16,12 @@ namespace GS_Models.ThreadViewModels
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string ThreadTitle { get; set; }
 
-        [Required, Display(Name = "Creator")]
-        public Guid ThreadCreator { get; set; }
+        //[Required, Display(Name = "Creator")]
+        //public Guid ThreadCreator { get; set; }
+
+        [Required, Display(Name = "Created By")]
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
 
         [Required, Display(Name = "Created")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]

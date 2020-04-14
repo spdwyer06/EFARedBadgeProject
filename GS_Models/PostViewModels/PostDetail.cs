@@ -17,8 +17,12 @@ namespace GS_Models.PostViewModels
         public int ThreadID { get; set; }
         public virtual Thread Thread { get; set; }
 
+        //[Required, Display(Name = "Created By")]
+        //public Guid PostCreator { get; set; }
+
         [Required, Display(Name = "Created By")]
-        public Guid PostCreator { get; set; }
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
 
         [Required, Display(Name = "Content")]
         [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]

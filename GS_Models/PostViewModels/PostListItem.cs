@@ -21,8 +21,12 @@ namespace GS_Models.PostViewModels
         [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]
         public string PostContent { get; set; }
 
+        //[Required, Display(Name = "Created By")]
+        //public Guid PostCreator { get; set; }
+
         [Required, Display(Name = "Created By")]
-        public Guid PostCreator { get; set; }
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
 
         [Required, Display(Name = "Created")]
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]

@@ -26,9 +26,9 @@ namespace GS_Services
             var entity = new Post()
             {
                 PostCreator = _userID,
+                CreatorDisplayName = GetDisplayName(_userID),
                 PostContent = model.PostContent,
                 ThreadID = threadID,
-                //ThreadID = model.ThreadID,
                 PostCreated = DateTimeOffset.Now
             };
 
@@ -43,7 +43,7 @@ namespace GS_Services
                     {
                         PostID = x.PostID,
                         ThreadID = x.ThreadID,
-                        PostCreator = x.PostCreator,
+                        CreatorDisplayName = x.CreatorDisplayName,
                         PostCreated = x.PostCreated,
                         Replies = x.Replies
                     });
@@ -76,7 +76,7 @@ namespace GS_Services
                      PostID = x.PostID,
                      ThreadID = x.ThreadID,
                      PostContent = x.PostContent,
-                     PostCreator = x.PostCreator,
+                     CreatorDisplayName = x.CreatorDisplayName,
                      PostCreated = x.PostCreated,
                      Replies = x.Replies
                  });
@@ -93,7 +93,7 @@ namespace GS_Services
             {
                 PostID = entity.PostID,
                 ThreadID = entity.ThreadID,
-                PostCreator = entity.PostCreator,
+                CreatorDisplayName = entity.CreatorDisplayName,
                 PostContent = entity.PostContent,
                 PostCreated = entity.PostCreated,
                 Replies = entity.Replies
@@ -135,6 +135,17 @@ namespace GS_Services
                 return true;
 
             return false;
+        }
+
+        public string GetDisplayName(Guid userID)
+        {
+            var user = _dbContext.Users
+                .Where(x => x.Id == userID.ToString())
+                .Single();
+
+            var displayName = user.DisplayName;
+
+            return displayName;
         }
     }
 }

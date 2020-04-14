@@ -143,11 +143,18 @@ namespace GameStash.Controllers
             base.Dispose(disposing);
         }
 
+
+
         private GameService CreateGameService()
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new GameService(userID);
             return service;
+        }
+
+        public ActionResult RedirectToCreateReview(int gameID)
+        {
+            return RedirectToAction("Create", "Review", new { gameID });
         }
     }
 }

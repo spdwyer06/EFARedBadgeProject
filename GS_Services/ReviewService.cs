@@ -35,13 +35,14 @@ namespace GS_Services
             return query.ToArray();
         }
 
-        public bool CreateReview(ReviewCreate model)
+        public bool CreateReview(ReviewCreate model, int gameID)
         {
             var entity = new Review
             {
                 UserID = _userID,
                 CreatorDisplayName = GetDisplayName(_userID),
-                GameID = model.GameID,
+                GameID = gameID,
+                //GameID = model.GameID,
                 ReviewRating = model.ReviewRating,
                 ReviewDescription = model.ReviewDescription
             };

@@ -22,25 +22,26 @@ namespace GameStash.Controllers
 
         // GET: Review/Create
         [Authorize]
-        public ActionResult Create()
+        public ActionResult Create(int gameID)
         {
+            ViewData["gameID"] = gameID;
             return View();
         }
 
         // POST: Review/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ReviewCreate model)
+        public ActionResult Create(ReviewCreate model, int gameID)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
             var service = CreateReviewService();
 
-            if (service.CreateReview(model))
+            if (service.CreateReview(model, gameID))
             {
                 TempData["SaveResult"] = "Review successfully created.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Game");
             }
 
             ModelState.AddModelError("", "Review could not be created.");
@@ -134,6 +135,11 @@ namespace GameStash.Controllers
             var service = new ReviewService(userID);
 
             return service;
+        }
+
+        public ActionResult ReturnToGames()
+        {
+            return RedirectToAction("Index", "Game");
         }
     }
 }

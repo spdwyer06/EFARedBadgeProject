@@ -33,32 +33,34 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThreadID)
-        </td>
-        <td>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PostID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ThreadID)
+    </td>
+    <td>
+        <a href="@Url.Action("PostRepliesIndex", "PostReply", new { postID = item.PostID })">
             @Html.DisplayFor(modelItem => item.PostContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatorDisplayName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfReplies)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { postID = item.PostID }) |
-            @Html.ActionLink("Details", "Details", new { postID = item.PostID }) |
-            @Html.ActionLink("Delete", "Delete", new { postID = item.PostID }) |
-            @Html.ActionLink("ViewReplies", "GoToRepliesForPost", new { postID = item.PostID })
-        </td>
-    </tr>
+        </a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatorDisplayName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PostCreated)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfReplies)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { postID = item.PostID }) |
+        @Html.ActionLink("Details", "Details", new { postID = item.PostID }) |
+        @Html.ActionLink("Delete", "Delete", new { postID = item.PostID }) 
+        @*@Html.ActionLink("ViewReplies", "GoToRepliesForPost", new { postID = item.PostID })*@
+    </td>
+</tr>
 }
 
 </table>

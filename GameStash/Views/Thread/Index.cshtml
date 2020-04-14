@@ -35,7 +35,9 @@
             @Html.DisplayFor(modelItem => item.ThreadID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ThreadTitle)
+            <a href="@Url.Action("ThreadPostsIndex", "Post", new { threadID = item.ThreadID })">
+                @Html.DisplayFor(modelItem => item.ThreadTitle)
+            </a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatorDisplayName)
@@ -49,8 +51,8 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { threadID = item.ThreadID }) |
             @Html.ActionLink("Details", "Details", new { threadID = item.ThreadID }) |
-            @Html.ActionLink("Delete", "Delete", new { threadID = item.ThreadID }) |
-            @Html.ActionLink("View Posts", "GoToPostsForThread", new { threadID = item.ThreadID })
+            @Html.ActionLink("Delete", "Delete", new { threadID = item.ThreadID }) 
+            @*@Html.ActionLink("View Posts", "GoToPostsForThread", new { threadID = item.ThreadID })*@
         </td>
     </tr>
 }

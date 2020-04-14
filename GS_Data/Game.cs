@@ -50,6 +50,7 @@ namespace GS_Data
         }
 
         [Display(Name = "Average Review Rating")]
+        [DisplayFormat(DataFormatString = "{0:#.##}")]
         public double AverageReview
         {
             get

@@ -42,6 +42,7 @@ namespace GS_Models.GameViewModels
         }
 
         [Display(Name = "Average Review Rating")]
+        [DisplayFormat(DataFormatString = "{0:#.##}")]
         public double AverageReview
         {
             get

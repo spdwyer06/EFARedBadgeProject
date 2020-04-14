@@ -26,6 +26,7 @@ namespace GS_Services
             var entity = new PostReply()
             {
                 ReplyCreator = _userID,
+                CreatorDisplayName = GetDisplayName(_userID),
                 ReplyContent = model.ReplyContent,
                 PostID = postID,
                 ReplyCreated = DateTimeOffset.Now
@@ -59,7 +60,7 @@ namespace GS_Services
                      ReplyID = x.ReplyID,
                      PostID = x.PostID,
                      ReplyContent = x.ReplyContent,
-                     ReplyCreator = x.ReplyCreator,
+                     CreatorDisplayName = x.CreatorDisplayName,
                      ReplyCreated = x.ReplyCreated,
                  });
 
@@ -73,7 +74,7 @@ namespace GS_Services
                     {
                         ReplyID = x.ReplyID,
                         PostID = x.PostID,
-                        ReplyCreator = x.ReplyCreator,
+                        CreatorDisplayName = x.CreatorDisplayName,
                         ReplyCreated = x.ReplyCreated
                     });
 
@@ -89,7 +90,7 @@ namespace GS_Services
             {
                 ReplyID = entity.ReplyID,
                 PostID = entity.PostID,
-                ReplyCreator = entity.ReplyCreator,
+                CreatorDisplayName = entity.CreatorDisplayName,
                 ReplyContent = entity.ReplyContent,
                 ReplyCreated = entity.ReplyCreated,
             };
@@ -127,6 +128,17 @@ namespace GS_Services
                 return true;
 
             return false;
+        }
+
+        public string GetDisplayName(Guid userID)
+        {
+            var user = _dbContext.Users
+                .Where(x => x.Id == userID.ToString())
+                .Single();
+
+            var displayName = user.DisplayName;
+
+            return displayName;
         }
     }
 }

@@ -17,8 +17,13 @@ namespace GS_Models.PostReplyViewModels
         public int PostID { get; set; }
         public virtual Post Post { get; set; }
 
+        //[Required, Display(Name = "Created By")]
+        //public Guid ReplyCreator { get; set; }
+
         [Required, Display(Name = "Created By")]
-        public Guid ReplyCreator { get; set; }
+        [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]
+        public string CreatorDisplayName { get; set; }
+
 
         [Required, Display(Name = "Content")]
         [MaxLength(8000, ErrorMessage = "There are too many characters in this field.")]

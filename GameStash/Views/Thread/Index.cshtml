@@ -4,16 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>All Forums Index</h2>
+<h2>Welcome to the forums, jump on in and get involved with the community!</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Thread", "Create", null, new { @class = "actionLinkText" })
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ThreadID)
-        </th>
+    <tr class="labelText">
         <th>
             @Html.DisplayNameFor(model => model.ThreadTitle)
         </th>
@@ -32,10 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ThreadID)
-        </td>
-        <td>
-            <a href="@Url.Action("ThreadPostsIndex", "Post", new { threadID = item.ThreadID })">
+            <a class="actionLinkText" href="@Url.Action("ThreadPostsIndex", "Post", new { threadID = item.ThreadID })">
                 @Html.DisplayFor(modelItem => item.ThreadTitle)
             </a>
         </td>
@@ -49,10 +43,9 @@
             @Html.DisplayFor(modelItem => item.NumberOfPost)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { threadID = item.ThreadID }) |
-            @Html.ActionLink("Details", "Details", new { threadID = item.ThreadID }) |
-            @Html.ActionLink("Delete", "Delete", new { threadID = item.ThreadID }) 
-            @*@Html.ActionLink("View Posts", "GoToPostsForThread", new { threadID = item.ThreadID })*@
+            @Html.ActionLink("Edit", "Edit", new { threadID = item.ThreadID }, new { @class = "actionLinkText" }) |
+            @Html.ActionLink("Details", "Details", new { threadID = item.ThreadID }, new { @class = "actionLinkText" }) |
+            @Html.ActionLink("Delete", "Delete", new { threadID = item.ThreadID }, new { @class = "actionLinkText" }) 
         </td>
     </tr>
 }

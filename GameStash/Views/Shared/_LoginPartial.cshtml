@@ -7,10 +7,8 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
             @{ var user = (System.Security.Claims.ClaimsIdentity)User.Identity; }
             @Html.ActionLink("Welcome " + user.FindFirstValue("DisplayName"), "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "navBarLink" })
-            @*@Html.Label("Hello " + user.FindFirstValue("DisplayName") + "!")*@
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()" class = "navBarLink">Log off</a></li>
     </ul>
@@ -19,9 +17,6 @@
 else
 {
 <ul class="nav navbar-nav navbar-right">
-    @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
-
     <li>@Html.ActionLink("Register", "Register", "Account", null, new { @class = "navBarLink" })</li>
     <li>@Html.ActionLink("Log in", "Login", "Account", null, new { @class = "navBarLink" })</li>
 </ul>

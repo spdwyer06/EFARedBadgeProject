@@ -4,21 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Reply Details</h2>
+<h2 class="labelText">Details for reply</h2>
+<h4>"@Model.ReplyContent"</h4>
 
 <div>
-    <h4>PostReplyDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ReplyID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReplyID)
-        </dd>
-
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.CreatorDisplayName)
         </dt>
 
@@ -26,15 +19,7 @@
             @Html.DisplayFor(model => model.CreatorDisplayName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReplyContent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReplyContent)
-        </dd>
-
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.ReplyCreated)
         </dt>
 
@@ -45,6 +30,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { replyID = Model.ReplyID }) |
-    @Html.ActionLink("Back to List", "PostRepliesIndex", new { postID = Model.PostID })
+    @Html.ActionLink("Edit", "Edit", new { replyID = Model.ReplyID }, new { @class = "actionLinkText" }) |
+    @Html.ActionLink("Back to List", "PostRepliesIndex", new { postID = Model.PostID }, new { @class = "actionLinkText" })
 </p>

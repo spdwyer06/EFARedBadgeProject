@@ -4,19 +4,15 @@
     ViewBag.Title = "ThreadPostsIndex";
 }
 
-<h2>Posts In This Thread</h2>
+<h2 class="labelText">Posts in</h2>
+<h4>"@ViewData["threadTitle"]"</h4>
+<br />
 
 <p>
-    @Html.ActionLink("Create New Post", "Create", new { threadID = ViewData["threadID"] })
+    @Html.ActionLink("Create New Post", "Create", new { threadID = ViewData["threadID"]}, new { @class = "actionLinkText" })
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PostID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThreadID)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.PostContent)
         </th>
@@ -35,13 +31,7 @@
 @foreach (var item in Model) {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.PostID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ThreadID)
-    </td>
-    <td>
-        <a href="@Url.Action("PostRepliesIndex", "PostReply", new { postID = item.PostID })">
+        <a class="actionLinkText" href="@Url.Action("PostRepliesIndex", "PostReply", new { postID = item.PostID })">
             @Html.DisplayFor(modelItem => item.PostContent)
         </a>
     </td>
@@ -55,10 +45,9 @@
         @Html.DisplayFor(modelItem => item.NumberOfReplies)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { postID = item.PostID }) |
-        @Html.ActionLink("Details", "Details", new { postID = item.PostID }) |
-        @Html.ActionLink("Delete", "Delete", new { postID = item.PostID }) 
-        @*@Html.ActionLink("ViewReplies", "GoToRepliesForPost", new { postID = item.PostID })*@
+        @Html.ActionLink("Edit", "Edit", new { postID = item.PostID }, new { @class = "actionLinkText" }) |
+        @Html.ActionLink("Details", "Details", new { postID = item.PostID }, new { @class = "actionLinkText" }) |
+        @Html.ActionLink("Delete", "Delete", new { postID = item.PostID }, new { @class = "actionLinkText" }) 
     </td>
 </tr>
 }

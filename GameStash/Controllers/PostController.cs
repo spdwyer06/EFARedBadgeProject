@@ -31,7 +31,11 @@ namespace GameStash.Controllers
         {
             var service = new PostService();
             var model = service.GetPostsByThreadID(threadID);
+            var newService = new ThreadService();
+            var parent = newService.GetThreadByID(threadID);
+            var threadTitle = parent.ThreadTitle;
 
+            ViewData["threadTitle"] = threadTitle;
             ViewData["threadID"] = threadID;
             return View(model);
         }

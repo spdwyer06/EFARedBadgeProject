@@ -56,6 +56,10 @@ textarea {
     color: forestgreen;
 }
 
+.actionLinkText:hover {
+    color: whitesmoke;
+}
+
 .consoleLogo{
     height: 50px;
     width: 75px;
@@ -94,4 +98,9 @@ textarea {
 
 .button:hover{
     background-color: white;
+}
+
+.loginImg{
+    height: 500px;
+    width: 300px;
 }

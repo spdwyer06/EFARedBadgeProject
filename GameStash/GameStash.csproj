@@ -192,7 +192,6 @@
   <ItemGroup>
     <Content Include="Content\Assets\background.png" />
     <Content Include="Content\Assets\login.png" />
-    <Content Include="Content\Assets\login2.jpg" />
     <Content Include="Content\Assets\nintendoLogo.png" />
     <Content Include="Content\Assets\noob.png" />
     <Content Include="Content\Assets\noob2.png" />

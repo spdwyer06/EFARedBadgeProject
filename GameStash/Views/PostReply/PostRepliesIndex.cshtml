@@ -4,28 +4,21 @@
     ViewBag.Title = "PostRepliesIndex";
 }
 
-<h2>Replies In This Post</h2>
+<h2 class="labelText">Replies to post</h2>
+<h4>"@ViewData["postContent"]"</h4>
+<br />
 
 <p>
-    @Html.ActionLink("Create New Reply", "Create", new { postID = ViewData["postID"] }) |
-    @Html.ActionLink("Back To Thread", "GoBackToThread", new { postID = ViewData["postID"] })
+    @Html.ActionLink("Create New Reply", "Create", new { postID = ViewData["postID"] }, new { @class = "actionLinkText" }) |
+    @Html.ActionLink("Back To Thread", "GoBackToThread", new { postID = ViewData["postID"] }, new { @class = "actionLinkText" })
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ReplyID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostID)
-        </th>
+    <tr class="labelText">
         <th>
             @Html.DisplayNameFor(model => model.ReplyContent)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatorDisplayName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReplyCreated)
         </th>
         <th></th>
     </tr>
@@ -33,24 +26,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ReplyID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ReplyContent)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatorDisplayName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ReplyCreated)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { replyID = item.ReplyID }) |
-            @Html.ActionLink("Details", "Details", new { replyID = item.ReplyID }) |
-            @Html.ActionLink("Delete", "Delete", new { replyID = item.ReplyID })
+            @Html.ActionLink("Edit", "Edit", new { replyID = item.ReplyID }, new { @class = "actionLinkText" }) |
+            @Html.ActionLink("Details", "Details", new { replyID = item.ReplyID }, new { @class = "actionLinkText" }) |
+            @Html.ActionLink("Delete", "Delete", new { replyID = item.ReplyID }, new { @class = "actionLinkText" })
         </td>
     </tr>
 }

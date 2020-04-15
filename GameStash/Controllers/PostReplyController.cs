@@ -25,9 +25,12 @@ namespace GameStash.Controllers
         {
             var service = new PostReplyService();
             var model = service.GetRepliesByPostID(postID);
+            var newService = new PostService();
+            var parent = newService.GetPostByID(postID);
+            var postContent = parent.PostContent;
 
+            ViewData["postContent"] = postContent;
             ViewData["postID"] = postID;
-
             return View(model);
         }
 
@@ -63,8 +66,12 @@ namespace GameStash.Controllers
         [Authorize]
         public ActionResult Create(int postID)
         {
-            ViewData["postID"] = postID;
+            var newService = new PostService();
+            var parent = newService.GetPostByID(postID);
+            var postContent = parent.PostContent;
 
+            ViewData["postContent"] = postContent;
+            ViewData["postID"] = postID;
             return View();
         }
 

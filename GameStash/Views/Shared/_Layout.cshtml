@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #151414">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,13 +18,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("GameStash", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("GameStash", "Index", "Home", new { area = "" }, new { @class = "navBarHome" })
+                @* navbar-brand *@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Games", "Index", "Game")</li>
-                    <li>@Html.ActionLink("Reviews", "Index", "Review")</li>
-                    <li>@Html.ActionLink("Forums", "Index", "Thread")</li>
+                    <li>@Html.ActionLink("Games", "Index", "Game", null, new { @class = "navBarLink" })</li>
+                    <li>@Html.ActionLink("Reviews", "Index", "Review", null, new { @class = "navBarLink" })</li>
+                    <li>@Html.ActionLink("Forums", "Index", "Thread", null, new { @class = "navBarLink" })</li>
                     @* Tab to hold everything user has created, reviews, threads, etc. (only show up when logged in ex. ElevenNote Notes) *@
                     <li>@*@Html.ActionLink("My Contributions", "Index", "???")*@</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@

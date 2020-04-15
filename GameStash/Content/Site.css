@@ -1,8 +1,16 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    /*background-color: forestgreen;*/
+    /*background-image: url('../Content/Assets/testBackground2.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 1000px;*/
+    background-image: url('../Content/Assets/testBackground.png');
+    background-position: top;
+    background-size: 100% 800px;
+    color: whitesmoke;
 }
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -21,6 +29,31 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navBarHome {
+    color: forestgreen;
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.navBarHome:hover{
+    color: whitesmoke;
+}
+
+.navBarLink{
+    color: whitesmoke;
+}
+
+.navBarLink:hover{
+    color:forestgreen;
+}
+
+.actionLinkText{
+    color: forestgreen;
 }
 
 .blarg{

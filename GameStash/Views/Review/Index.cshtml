@@ -9,7 +9,7 @@
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
-<table class="table">
+<table class="table" style="color: whitesmoke">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ReviewID)
@@ -46,10 +46,10 @@
     <td>
         @Html.DisplayFor(modelItem => item.ReviewDescription)
     </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ReviewID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+    <td style="color: forestgreen">
+        @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }, new { @class = "actionLinkText"}) |
+        @Html.ActionLink("Details", "Details", new { id = item.ReviewID }, new { @class = "actionLinkText"}) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID }, new { @class = "actionLinkText"})
     </td>
 </tr>
 }

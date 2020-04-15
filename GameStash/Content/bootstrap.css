@@ -5489,12 +5489,13 @@ input[type="button"].btn-block {
     }
 
     .navbar-inverse .navbar-nav > li > a {
-        color: #9d9d9d;
+        /*color: #9d9d9d;*/
+        /*color: whitesmoke;*/
     }
 
         .navbar-inverse .navbar-nav > li > a:hover,
         .navbar-inverse .navbar-nav > li > a:focus {
-            color: #fff;
+            /*color: #fff;*/
             background-color: transparent;
         }
 

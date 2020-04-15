@@ -191,7 +191,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Assets\background.png" />
+    <Content Include="Content\Assets\login.png" />
+    <Content Include="Content\Assets\login2.jpg" />
     <Content Include="Content\Assets\nintendoLogo.png" />
+    <Content Include="Content\Assets\noob.png" />
+    <Content Include="Content\Assets\noob2.png" />
+    <Content Include="Content\Assets\noob3.png" />
     <Content Include="Content\Assets\playStationLogo.png" />
     <Content Include="Content\Assets\register.jpg" />
     <Content Include="Content\Assets\register2.png" />
@@ -323,8 +328,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />

@@ -70,3 +70,28 @@ textarea {
     height: 75px;
     width: 90px;
 }
+
+.registerText{
+    color:forestgreen;
+    position: fixed;
+    right: 100px;
+    top: 150px;
+}
+
+.registerImg{
+   position: fixed;
+   right: 50px;
+   top: 175px;
+   height: 400px;
+   width: 400px;
+}
+
+.button {
+    background-color: forestgreen;
+    color: whitesmoke;
+    border: 2px solid #228B22; /* Forest Green */
+}
+
+.button:hover{
+    background-color: white;
+}

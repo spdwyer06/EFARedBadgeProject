@@ -64,6 +64,11 @@ namespace GameStash.Controllers
         [Authorize]
         public ActionResult Create(int threadID)
         {
+            var newService = new ThreadService();
+            var parent = newService.GetThreadByID(threadID);
+            var threadTitle = parent.ThreadTitle;
+
+            ViewData["threadTitle"] = threadTitle;
             ViewData["threadID"] = threadID;
             return View();
         }

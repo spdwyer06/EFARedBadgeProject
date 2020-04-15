@@ -4,7 +4,8 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create Post</h2>
+<h2 class="labelText">Create a post in</h2>
+<h4>"@ViewData["threadTitle"]"</h4>
 
 
 @using (Html.BeginForm()) 
@@ -12,14 +13,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>PostCreate</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
        @Html.HiddenFor(model => model.ThreadID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PostContent, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PostContent, htmlAttributes: new { @class = "control-label col-md-2 labelText" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PostContent, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PostContent, "", new { @class = "text-danger" })
@@ -28,14 +28,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="button btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "ThreadPostsIndex", new { threadID = ViewData["threadID"] })
+    @Html.ActionLink("Back to List", "ThreadPostsIndex", new { threadID = ViewData["threadID"] }, new { @class = "actionLinkText" })
 </div>
 
 @section Scripts {

@@ -4,7 +4,6 @@
     ViewBag.Title = "Create";
 }
 
-@*<h2>Create</h2>*@
 
 @using (Html.BeginForm()) 
 {
@@ -12,7 +11,7 @@
     
 <div class="form-horizontal">
     <br />
-    <h4>Add A Game To The Database</h4>
+    <h2 class="labelText">Add a game to the database</h2>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">

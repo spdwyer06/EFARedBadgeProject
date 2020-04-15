@@ -4,30 +4,24 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Review Create</h2>
+@* Need to add in a GameTitle prop to Review *@
+@*<h2>Write a review for</h2>
+<h2>@Model.GameTitle</h2>*@
 
+<h2>Create a new review</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ReviewCreate</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         @Html.HiddenFor(model => model.GameID)
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.GameID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GameID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GameID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
         <div class="form-group">
-            @Html.LabelFor(model => model.ReviewRating, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReviewRating, htmlAttributes: new { @class = "control-label col-md-2 labelText" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ReviewRating, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ReviewRating, "", new { @class = "text-danger" })
@@ -35,7 +29,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ReviewDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReviewDescription, htmlAttributes: new { @class = "control-label col-md-2 labelText" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ReviewDescription, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ReviewDescription, "", new { @class = "text-danger" })
@@ -44,14 +38,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="button btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to Games", "ReturnToGames")
+    @Html.ActionLink("Back to Games", "ReturnToGames", null, new { @class = "actionLinkText" })
 </div>
 
 @section Scripts {

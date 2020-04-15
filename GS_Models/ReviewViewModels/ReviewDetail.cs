@@ -21,6 +21,7 @@ namespace GS_Models.ReviewViewModels
         public string CreatorDisplayName { get; set; }
 
         [ForeignKey("Game")]
+        [Display(Name = "Game Title")]
         public string GameTitle { get; set; }
         public virtual Game Game { get; set; }
 

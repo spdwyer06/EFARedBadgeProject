@@ -13,6 +13,9 @@ namespace GS_Models.ReviewViewModels
     {
         [ForeignKey("Game")]
         public int GameID { get; set; }
+
+        [Display(Name = "Game Title")]
+        public string GameTitle { get; set; }
         public virtual Game Game { get; set; }
 
         [Required, Display(Name = "Review Rating")]

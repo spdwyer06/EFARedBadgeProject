@@ -4,7 +4,8 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit Reply</h2>
+<h2 class="labelText">Edit</h2>
+<h4>"@Model.ReplyContent"</h4>
 
 
 @using (Html.BeginForm())
@@ -12,14 +13,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>PostReplyEdit</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
        
         @Html.HiddenFor(model => model.ReplyID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ReplyContent, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReplyContent, htmlAttributes: new { @class = "control-label col-md-2 labelText" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ReplyContent, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ReplyContent, "", new { @class = "text-danger" })
@@ -28,14 +28,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="button btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "PostRepliesIndex", new { postID = ViewData["postID"] })
+    @Html.ActionLink("Back to List", "PostRepliesIndex", new { postID = ViewData["postID"] }, new { @class = "actionLinkText" })
 </div>
 
 @section Scripts {

@@ -23,20 +23,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReplyContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatorDisplayName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { replyID = item.ReplyID }, new { @class = "actionLinkText" }) |
-            @Html.ActionLink("Details", "Details", new { replyID = item.ReplyID }, new { @class = "actionLinkText" }) |
-            @Html.ActionLink("Delete", "Delete", new { replyID = item.ReplyID }, new { @class = "actionLinkText" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a class="actionLinkText" href="@Url.Action("Details", "PostReply", new { replyID = item.ReplyID })">
+                    @Html.DisplayFor(modelItem => item.ReplyContent)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatorDisplayName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { replyID = item.ReplyID }, new { @class = "actionLinkText" }) |
+                @Html.ActionLink("Delete", "Delete", new { replyID = item.ReplyID }, new { @class = "actionLinkText" })
+            </td>
+        </tr>
+    }
 
 </table>

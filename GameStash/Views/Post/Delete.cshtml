@@ -4,20 +4,21 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete Post</h2>
+<h2 class="labelText">Are you sure you want to delete this post?</h2>
+<h4>"@Model.PostContent"</h4>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>PostDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PostID)
+
+        @* Add a thread title property, show "From Thread" *@
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Thread.ThreadTitle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PostID)
-        </dd>
+            @Html.DisplayFor(model => model.Thread.ThreadTitle)
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.CreatorDisplayName)
@@ -58,8 +59,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "ThreadPostsIndex", new { threadID = Model.ThreadID })
+            <input type="submit" value="Delete" class="button btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ThreadPostsIndex", new { threadID = Model.ThreadID }, new { @class = "actionLinkText" })
         </div>
     }
 </div>

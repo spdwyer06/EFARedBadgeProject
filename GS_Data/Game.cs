@@ -10,7 +10,7 @@ namespace GS_Data
     public class Game
     {
         public enum TypeOfPlatform { Playstation4, XboxOne, NintendoSwitch, PC }
-        public enum TypeOfCategory { FPS, RPG, Sports }
+        public enum TypeOfCategory { FPS, RPG, Sports, Platformer, Fighting, Adventure }
         public enum TypeOfRating { E, T, M }
 
         [Key]

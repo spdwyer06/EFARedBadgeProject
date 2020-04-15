@@ -56,6 +56,10 @@ textarea {
     color: forestgreen;
 }
 
+.labelText{
+    color: forestgreen;
+}
+
 .actionLinkText:hover {
     color: whitesmoke;
 }

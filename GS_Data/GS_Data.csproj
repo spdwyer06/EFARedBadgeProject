@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202004132152542_AddedUserDisplayNamePropertyThroughout.designer.cs">
       <DependentUpon>202004132152542_AddedUserDisplayNamePropertyThroughout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004151549327_AddedGameSeedData.cs" />
+    <Compile Include="Migrations\202004151549327_AddedGameSeedData.designer.cs">
+      <DependentUpon>202004151549327_AddedGameSeedData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="PostReply.cs" />
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004132152542_AddedUserDisplayNamePropertyThroughout.resx">
       <DependentUpon>202004132152542_AddedUserDisplayNamePropertyThroughout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004151549327_AddedGameSeedData.resx">
+      <DependentUpon>202004151549327_AddedGameSeedData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

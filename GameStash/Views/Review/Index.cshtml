@@ -4,16 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="blarg">Review Index</h2>
+<br />
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
 <table class="table" style="color: whitesmoke">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ReviewID)
-        </th>
+    <tr class="labelText">
         <th>
             @Html.DisplayNameFor(model => model.CreatorDisplayName)
         </th>
@@ -29,29 +23,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReviewID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CreatorDisplayName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GameTitle)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReviewRating)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReviewDescription)
-    </td>
-    <td style="color: forestgreen">
-        @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }, new { @class = "actionLinkText"}) |
-        @Html.ActionLink("Details", "Details", new { id = item.ReviewID }, new { @class = "actionLinkText"}) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID }, new { @class = "actionLinkText"})
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatorDisplayName)
+            </td>
+            <td>
+                <a class="actionLinkText" href="@Url.Action("Details", "Review", new { id = item.ReviewID })">
+                    @Html.DisplayFor(modelItem => item.GameTitle)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewDescription)
+            </td>
+            <td style="color: forestgreen">
+                @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }, new { @class = "actionLinkText" }) |
+                @*@Html.ActionLink("Details", "Details", new { id = item.ReviewID }, new { @class = "actionLinkText" }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID }, new { @class = "actionLinkText" })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -66,6 +66,7 @@ namespace GS_Services
                 PlatformType = entity.PlatformType,
                 CategoryType = entity.CategoryType,
                 RatingType = entity.RatingType,
+                Reviews = entity.Reviews,
                 Price = entity.Price
             };
         }

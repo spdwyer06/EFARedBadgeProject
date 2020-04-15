@@ -4,21 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Thread Details</h2>
+<h2 class="labelText">Details for</h2>
+<h4>@Model.ThreadTitle</h4>
 
 <div>
-    <h4>ThreadDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ThreadID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ThreadID)
-        </dd>
-
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.CreatorDisplayName)
         </dt>
 
@@ -26,15 +19,8 @@
             @Html.DisplayFor(model => model.CreatorDisplayName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ThreadTitle)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ThreadTitle)
-        </dd>
-
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.ThreadDescription)
         </dt>
 
@@ -42,7 +28,7 @@
             @Html.DisplayFor(model => model.ThreadDescription)
         </dd>
 
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.ThreadCreated)
         </dt>
 
@@ -50,7 +36,7 @@
             @Html.DisplayFor(model => model.ThreadCreated)
         </dd>
 
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.NumberOfPost)
         </dt>
 
@@ -61,6 +47,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { threadID = Model.ThreadID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { threadID = Model.ThreadID }, new { @class = "actionLinkText" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "actionLinkText" })
 </p>

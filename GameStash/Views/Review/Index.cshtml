@@ -17,9 +17,6 @@
         <th>
             @Html.DisplayNameFor(model => model.ReviewRating)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReviewDescription)
-        </th>
         <th></th>
     </tr>
 
@@ -36,9 +33,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ReviewRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewDescription)
             </td>
             <td style="color: forestgreen">
                 @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }, new { @class = "actionLinkText" }) |

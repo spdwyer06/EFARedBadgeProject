@@ -4,21 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Post Details</h2>
+<h2 class="labelText">Details for post</h2>
+<h4>"@Model.PostContent"</h4>
 
 <div>
-    <h4>PostDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PostID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PostID)
-        </dd>
-
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.CreatorDisplayName)
         </dt>
 
@@ -26,7 +19,7 @@
             @Html.DisplayFor(model => model.CreatorDisplayName)
         </dd>
 
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.PostContent)
         </dt>
 
@@ -34,7 +27,7 @@
             @Html.DisplayFor(model => model.PostContent)
         </dd>
 
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.PostCreated)
         </dt>
 
@@ -42,7 +35,7 @@
             @Html.DisplayFor(model => model.PostCreated)
         </dd>
 
-        <dt>
+        <dt class="labelText">
             @Html.DisplayNameFor(model => model.NumberOfReplies)
         </dt>
 
@@ -53,6 +46,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { postID = Model.PostID }) |
-    @Html.ActionLink("Back to List", "ThreadPostsIndex", new { threadID = Model.ThreadID })
+    @Html.ActionLink("Edit", "Edit", new { postID = Model.PostID }, new { @class = "actionLinkText" }) |
+    @Html.ActionLink("Back to List", "ThreadPostsIndex", new { threadID = Model.ThreadID }, new { @class = "actionLinkText" })
 </p>

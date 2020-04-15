@@ -6,7 +6,7 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100% 1000px;*/
-    background-image: url('../Content/Assets/testBackground.png');
+    background-image: url('../Content/Assets/background.png');
     background-position: top;
     background-size: 100% 800px;
     color: whitesmoke;
@@ -56,6 +56,17 @@ textarea {
     color: forestgreen;
 }
 
-.blarg{
-    text-decoration: underline;
+.consoleLogo{
+    height: 50px;
+    width: 75px;
+}
+
+.nintendoLogo {
+    height: 75px;
+    width: 100px;
+}
+
+.steamLogo {
+    height: 75px;
+    width: 90px;
 }

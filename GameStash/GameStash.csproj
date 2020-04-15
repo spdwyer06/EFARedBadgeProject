@@ -190,8 +190,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Assets\testBackground.png" />
-    <Content Include="Content\Assets\testBackground2.jpg" />
+    <Content Include="Content\Assets\background.png" />
+    <Content Include="Content\Assets\nintendoLogo.png" />
+    <Content Include="Content\Assets\playStationLogo.png" />
+    <Content Include="Content\Assets\register.jpg" />
+    <Content Include="Content\Assets\register2.png" />
+    <Content Include="Content\Assets\steamLogo.png" />
+    <Content Include="Content\Assets\xboxLogo.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />

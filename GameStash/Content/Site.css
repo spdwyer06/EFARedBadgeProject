@@ -1,16 +1,19 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    /*background-color: forestgreen;*/
-    /*background-image: url('../Content/Assets/testBackground2.jpg');
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: 100% 1000px;*/
+    font-family: 'Odibee Sans', serif;
+    font-size: xx-large;
     background-image: url('../Content/Assets/background.png');
     background-position: top;
     background-size: 100% 800px;
     color: whitesmoke;
 }
+
+/*.fontTest {
+    font-family: 'Odibee Sans', serif;
+    font-size: large;
+}*/
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

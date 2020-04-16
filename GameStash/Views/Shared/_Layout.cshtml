@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans|Tangerine&display=swap" rel="stylesheet">
     <title>@ViewBag.Title - GameStash</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")    @Scripts.Render("~/bundles/modernizr")
@@ -19,7 +20,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("GameStash", "Index", "Home", new { area = "" }, new { @class = "navBarHome" })
-                @* navbar-brand *@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -28,8 +28,6 @@
                     <li>@Html.ActionLink("Forums", "Index", "Thread", null, new { @class = "navBarLink" })</li>
                     @* Tab to hold everything user has created, reviews, threads, etc. (only show up when logged in ex. ElevenNote Notes) *@
                     <li>@*@Html.ActionLink("My Contributions", "Index", "???")*@</li>
-                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
-                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

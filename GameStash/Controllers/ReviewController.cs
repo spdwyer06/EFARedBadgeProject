@@ -16,7 +16,18 @@ namespace GameStash.Controllers
         {
             var service = new ReviewService();
             var model = service.GetReviews();
+            Guid userID;
 
+            if (User.Identity.IsAuthenticated)
+            {
+                userID = Guid.Parse(User.Identity.GetUserId());
+            }
+            else
+            {
+                userID = Guid.Parse("00000000-0000-0000-0000-000000000000");
+            }
+
+            ViewData["userID"] = userID;
             return View(model);
         }
 
@@ -85,7 +96,7 @@ namespace GameStash.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            if(model.ReviewID != id)
+            if (model.ReviewID != id)
             {
                 ModelState.AddModelError("", "ID Mismatch");
                 return View(model);

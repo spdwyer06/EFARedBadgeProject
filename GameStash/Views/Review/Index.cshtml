@@ -34,11 +34,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ReviewRating)
             </td>
-            <td style="color: forestgreen">
-                @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }, new { @class = "actionLinkText" }) |
-                @*@Html.ActionLink("Details", "Details", new { id = item.ReviewID }, new { @class = "actionLinkText" }) |*@
-                @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID }, new { @class = "actionLinkText" })
-            </td>
+            @if(item.UserID.ToString() == ViewData["userID"].ToString())
+            {
+                <td style="color: forestgreen">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }, new { @class = "actionLinkText" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID }, new { @class = "actionLinkText" })
+                </td>
+             }
+            <td></td>
         </tr>
     }
 

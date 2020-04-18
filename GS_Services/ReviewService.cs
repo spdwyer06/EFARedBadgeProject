@@ -26,6 +26,7 @@ namespace GS_Services
                 .Select(x => new ReviewListItem
                 {
                     ReviewID = x.ReviewID,
+                    UserID = x.UserID,
                     CreatorDisplayName = x.CreatorDisplayName,
                     GameTitle = x.Game.GameTitle,
                     ReviewRating = x.ReviewRating,

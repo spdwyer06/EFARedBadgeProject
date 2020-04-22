@@ -42,6 +42,7 @@ namespace GS_Services
                     .Select(x => new ThreadListItem
                     {
                         ThreadID = x.ThreadID,
+                        ThreadCreator = x.ThreadCreator,
                         ThreadTitle = x.ThreadTitle,
                         CreatorDisplayName = x.CreatorDisplayName,
                         ThreadCreated = x.ThreadCreated,

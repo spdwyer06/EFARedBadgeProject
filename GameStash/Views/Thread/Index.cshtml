@@ -26,28 +26,38 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <a class="actionLinkText" href="@Url.Action("ThreadPostsIndex", "Post", new { threadID = item.ThreadID })">
-                @Html.DisplayFor(modelItem => item.ThreadTitle)
-            </a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatorDisplayName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThreadCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfPost)
-        </td>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        <a class="actionLinkText" href="@Url.Action("ThreadPostsIndex", "Post", new { threadID = item.ThreadID })">
+            @Html.DisplayFor(modelItem => item.ThreadTitle)
+        </a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatorDisplayName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ThreadCreated)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfPost)
+    </td>
+    @if (item.ThreadCreator.ToString() == ViewData["userID"].ToString())
+    {
         <td>
             @Html.ActionLink("Edit", "Edit", new { threadID = item.ThreadID }, new { @class = "actionLinkText" }) |
             @Html.ActionLink("Details", "Details", new { threadID = item.ThreadID }, new { @class = "actionLinkText" }) |
-            @Html.ActionLink("Delete", "Delete", new { threadID = item.ThreadID }, new { @class = "actionLinkText" }) 
+            @Html.ActionLink("Delete", "Delete", new { threadID = item.ThreadID }, new { @class = "actionLinkText" })
         </td>
-    </tr>
-}
+    }
+    else
+    {
+        <td>
+            @Html.ActionLink("Details", "Details", new { threadID = item.ThreadID }, new { @class = "actionLinkText" }) 
+        </td>
+    }
+</tr>
+    }
 
 </table>

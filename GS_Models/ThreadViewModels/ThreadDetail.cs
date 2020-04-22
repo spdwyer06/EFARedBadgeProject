@@ -12,8 +12,8 @@ namespace GS_Models.ThreadViewModels
     {
         public int ThreadID { get; set; }
 
-        //[Required, Display(Name = "Creator")]
-        //public Guid ThreadCreator { get; set; }
+        [Required, Display(Name = "Creator")]
+        public Guid ThreadCreator { get; set; }
 
         [Required, Display(Name = "Created By")]
         [MaxLength(20, ErrorMessage = "There are too many characters in this field.")]

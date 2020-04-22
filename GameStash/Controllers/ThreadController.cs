@@ -80,7 +80,18 @@ namespace GameStash.Controllers
         {
             var service = new ThreadService();
             var model = service.GetThreadByID(threadID);
+            Guid userID;
 
+            if (User.Identity.IsAuthenticated)
+            {
+                userID = Guid.Parse(User.Identity.GetUserId());
+            }
+            else
+            {
+                userID = Guid.Parse("00000000-0000-0000-0000-000000000000");
+            }
+
+            ViewData["userID"] = userID;
             return View(model);
         }
 

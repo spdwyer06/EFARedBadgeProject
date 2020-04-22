@@ -76,6 +76,7 @@ namespace GS_Services
             return new ThreadDetail
             {
                 ThreadID = entity.ThreadID,
+                ThreadCreator = entity.ThreadCreator,
                 CreatorDisplayName = entity.CreatorDisplayName,
                 ThreadTitle = entity.ThreadTitle,
                 ThreadDescription = entity.ThreadDescription,

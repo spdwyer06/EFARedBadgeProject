@@ -61,6 +61,7 @@ namespace GS_Services
             return new ReviewDetail
             {
                 ReviewID = entity.ReviewID,
+                UserID = entity.UserID,
                 CreatorDisplayName = entity.CreatorDisplayName,
                 GameTitle = entity.Game.GameTitle,
                 ReviewRating = entity.ReviewRating,

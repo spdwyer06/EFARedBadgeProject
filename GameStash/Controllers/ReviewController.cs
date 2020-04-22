@@ -62,9 +62,21 @@ namespace GameStash.Controllers
         // GET: Review/Details/{id}
         public ActionResult Details(int id)
         {
-            var service = CreateReviewService();
+            //var service = CreateReviewService();
+            var service = new ReviewService();
             var model = service.GetReviewByID(id);
+            Guid userID;
 
+            if (User.Identity.IsAuthenticated)
+            {
+                userID = Guid.Parse(User.Identity.GetUserId());
+            }
+            else
+            {
+                userID = Guid.Parse("00000000-0000-0000-0000-000000000000");
+            }
+
+            ViewData["userID"] = userID;
             return View(model);
         }
 

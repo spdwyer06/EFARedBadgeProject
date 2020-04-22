@@ -37,7 +37,16 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewID }, new { @class = "actionLinkText" }) |
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "actionLinkText" })
-</p>
+@if (Model.UserID.ToString() == ViewData["userID"].ToString())
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewID }, new { @class = "actionLinkText" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "actionLinkText" })
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "actionLinkText" })
+    </p>
+}
